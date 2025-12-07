@@ -4,17 +4,21 @@ Console.Write("Enter client name: ");
 
 string nameOne = Console.ReadLine();
 
+
 Console.Write("Enter product: ");
 
 string productOne = Console.ReadLine();
+
 
 Console.Write("Enter price (only numbers): ");
 
 decimal priceOne = decimal.Parse(Console.ReadLine());
 
+
 Console.Write("Enter address: ");
 
 string addressOne = Console.ReadLine();
+
 
 Console.WriteLine("Ordered No 1");
 
@@ -26,15 +30,18 @@ Console.WriteLine($"Address: {addressOne}.");
 
 Console.WriteLine();
 
+
 // Order 2
 
 Console.Write("Enter client name: ");
 
 string nameTwo = Console.ReadLine();
 
+
 Console.Write("Enter product: ");
 
 string productTwo = Console.ReadLine();
+
 
 Console.Write("Enter price (only numbers): ");
 
