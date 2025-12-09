@@ -2,7 +2,7 @@
 
 const string EXIT_TEXT = "exit";      // вихід коли користувач ввів усі дані
 
-bool ra = true;
+bool isReadNew = true;
 
 int totalSalary = 0;        // сума всіх зарплат int workersCount = 0;
 int workersCount = 0;       // лічильник працівників// лічильник працівників
@@ -21,11 +21,11 @@ do
       workersCount++;
     }
     else if (strWorkersSalary == "exit")
-        ra = false;
+        isReadNew = false;
     else
         Console.WriteLine("Помилка, введіть число!");
 }
-while (ra);
+while (isReadNew);
 if (workersCount > 0)
 {
     double average = totalSalary / workersCount;
