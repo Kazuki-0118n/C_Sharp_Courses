@@ -14,7 +14,7 @@ for (int i = 1; i <= rows; i++)       // цикл на кількість ряд
 {
     for (int j = 1; j <= i; j++)      //  цикл на зірочки у рядках
     {
-        Console.Write("✭");
+        Console.Write(" ❆ ");
     }
     Console.WriteLine();                
 }
