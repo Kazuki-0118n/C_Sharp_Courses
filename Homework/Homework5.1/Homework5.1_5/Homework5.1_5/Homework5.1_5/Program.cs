@@ -1,24 +1,22 @@
-﻿//Напишіть програму, яка запитує в користувача кількість годин,
-//працюваних за день, та розмір годинної ставки. Після введення значень програма має обчислити та вивести оплату за день.
-Console.OutputEncoding = System.Text.Encoding.UTF8;
+﻿Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-Console.WriteLine("Введіть кількість робочих годин: ");
+Console.WriteLine("Введіть кількість робочих годин: ");    
 double hours;
 
-while (!double.TryParse(Console.ReadLine(), out hours))
-{ 
-Console.WriteLine("Помилка! Введіть число:")
+while (!double.TryParse(Console.ReadLine(), out hours))     // перевірка на введення робочих годин
+{
+    Console.WriteLine("Помилка! Введіть число:");
 }
 
 Console.WriteLine("Введіть ставку за годину: ");
 decimal hourlyRate;
 
-while (!decimal.TryParse(Console.ReadLine(), out hourlyRate))
+while (!decimal.TryParse(Console.ReadLine(), out hourlyRate))    // перевірка на введення годиної ставки
 {
-    Console.WriteLine("Помилка! Введіть число!")
+    Console.WriteLine("Помилка! Введіть число:");
 }
 
-decimal salary = hours * hourlyRate
+decimal salary = (decimal)hours * hourlyRate;    // розрахунок оплати за день
 
-Console.WriteLine($"Заробітна плата: {salary}");
+Console.WriteLine($"Оплата за день: {salary}");
 Console.ReadKey();
