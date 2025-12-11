@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿Console.WriteLine("Enter a number: ");
+int userNumber = 0;
+
+while (!int.TryParse(Console.ReadLine(), out userNumber))
+{
+    Console.WriteLine("Error! Enter a number: ");
+}
