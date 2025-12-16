@@ -1,10 +1,11 @@
 ﻿int[,] table = new int[9, 9];
 
-for (int i = 0; i < 9; i++)    
+// таблиця множення від 1 до 9
+for (int i = 0; i < 9; i++)    // рядки
 {
-    for (int j = 0; j < 9; j++)   
+    for (int j = 0; j < 9; j++)   // стовпці
     {
-        table[i, j] = (i + 1) * (j + 1);
+        table[i, j] = (i + 1) * (j + 1);  
     }
 }
 
