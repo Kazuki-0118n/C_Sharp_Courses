@@ -14,14 +14,14 @@ for (int i = 0; i < randomMasive.Length; i++)
 }
 
 
-// виведення елементів з парними індексами + підрахунок суми
+// виведення елементів з парними індексами
 Console.WriteLine("Numbers with even index:");
 for (int i = 0; i < randomMasive.Length; i++)
 {
     if (i % 2 == 0)
     {
         Console.WriteLine(randomMasive[i]);
-        numberSum += randomMasive[i];
+        numberSum += randomMasive[i];       //підрахунок суми
     }
 }
 
