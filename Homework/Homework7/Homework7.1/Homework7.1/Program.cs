@@ -1,28 +1,27 @@
 ﻿Random random = new Random();
 
 // створення масиву
-int[] randomMasive = new int[10];
+int[] randomArray = new int[10];
 
 // змінна для суми
 int numberSum = 0;
 
 
 // заповнення масиву випадковими числами
-for (int i = 0; i < randomMasive.Length; i++)
+for (int i = 0; i < randomArray.Length; i++)
 {
-    randomMasive[i] = random.Next(-10, 10);
+    randomArray[i] = random.Next(-10, 10);
 }
 
 
 // виведення елементів з парними індексами
 Console.WriteLine("Numbers with even index:");
-for (int i = 0; i < randomMasive.Length; i++)
+for (int i = 1; i < randomArray.Length; i += 2)
 {
-    if (i % 2 == 0)
-    {
-        Console.WriteLine(randomMasive[i]);
-        numberSum += randomMasive[i];       //підрахунок суми
-    }
+   
+        Console.WriteLine(randomArray[i]);
+        numberSum += randomArray[i];       //підрахунок суми
+
 }
 
 
