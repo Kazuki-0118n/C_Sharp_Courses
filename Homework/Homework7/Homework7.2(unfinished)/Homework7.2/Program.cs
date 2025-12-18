@@ -1,5 +1,6 @@
 ﻿using System;
 Console.OutputEncoding = System.Text.Encoding.UTF8;
+bool someoneWin = true;
 
 int[,] game =
 {
@@ -22,5 +23,7 @@ for (int i = 0; i < 3; i++)
     Console.WriteLine();
     Console.WriteLine("----------.");
 }
+
+while(someoneWin)
 
 
