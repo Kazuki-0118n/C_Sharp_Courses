@@ -1,36 +1,28 @@
-﻿//*5. За допомогою enum створити програму,
-//що буде запитувати у користувача кількість днів, а потім рахувати
-//який буде день через введену кількість, якщо рахувати від понеділка і виводити результат.
+﻿Console.WriteLine("Enter the number of days: ");
 
-Console.WriteLine("Enter the number of days: ");
+string strDayNum = Console.ReadLine();
+int intDayNum;
 
-var strDayNum = Console.ReadLine();
-int intDayNum = 0;
-
-while (!int.TryParse(strDayNum, out intDayNum))    // введення кількості днів
+// Перевірка що введено саме ціле число
+while (!int.TryParse(strDayNum, out intDayNum))
 {
     Console.WriteLine("Error! Please, try again: ");
-        strDayNum = Console.ReadLine();
+    strDayNum = Console.ReadLine();
 }
+
+// Перевірка що число > 0 
 if (intDayNum <= 0)
-{ Console.WriteLine("The number must be greater than 0"); }
-
-
-WeekDays day = (WeekDays)intDayNum;
-
-// якщо введене число 1-7
-if (intDayNum <= 7)             
 {
-    Console.WriteLine($"{day}");
-
+    Console.WriteLine("The number must be greater than 0");
+    return; // зупинка програми
 }
-else                                          
-    for (int i = 1; i <= intDayNum; i++)
-    {
 
-    }
+int dayIndex = (intDayNum - 1) % 7 + 1;
 
+// перетворення числа 1-7 у відповідний елемент enum
+WeekDays dayWeek = (WeekDays)dayIndex;
 
+Console.WriteLine($"Day after {intDayNum} days from Monday: {dayWeek}");
 
 
 enum WeekDays
