@@ -10,8 +10,11 @@ int[,] game =
 };
 
 
-//var firstPleyer = x;
-//var secondPleyer = o;
+//string firstPleyer = x;
+//string secondPleyer = o;
+int pleyerOne_Choose;
+int pleyerTwo_Choose;
+
 
 // -- Створення ігрового поля
 for (int i = 0; i < 3; i++)
@@ -22,8 +25,8 @@ for (int i = 0; i < 3; i++)
     }
     Console.WriteLine();
     Console.WriteLine("----------.");
-}
 
-while(someoneWin)
+};
 
-
+Console.WriteLine("Хід першого гравця. Оберіть число для ходу:");
+pleyerOne_Choose = int.TryParse(Console.ReadLine());

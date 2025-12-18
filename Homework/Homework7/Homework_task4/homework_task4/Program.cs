@@ -8,18 +8,20 @@ int[,] yakiisMasiv =
     { 6, 666, 81, 43, 5 }
 };
 
-int max = 0;
-int min = 100000;
+int max = yakiisMasiv[0, 0];
+int min = yakiisMasiv[0, 0];
 
-foreach(int num in yakiisMasiv)
+for (int i = 0; i < 5; i++)       // рядки
 {
-    if (num > max)           // порівнює для знаходження найбільшого числа
+    for (int j = 0; j < 5; j++)   // стовпці
     {
-        max = num;
-    }
-    if (num < min)           // порівнює для знаходження найменшого числа
-    {
-        min = num;
+        // знаходження максимального числа
+        if (yakiisMasiv[i, j] > max)
+            max = yakiisMasiv[i, j];
+
+        // знаходження мінімального числа
+        if (yakiisMasiv[i, j] < min)
+            min = yakiisMasiv[i, j];
     }
 }
 
