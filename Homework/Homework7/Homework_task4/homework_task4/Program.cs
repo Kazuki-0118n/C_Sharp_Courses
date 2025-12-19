@@ -11,49 +11,35 @@ int[,] yakiisMasiv =
 int max = yakiisMasiv[0, 0];
 int min = yakiisMasiv[0, 0];
 
-for (int i = 0; i < 5; i++)       // рядки
+int maxRow = 0, maxCol = 0;
+int minRow = 0, minCol = 0;
+
+for (int i = 0; i < 5; i++)        // рядки
 {
-    for (int j = 0; j < 5; j++)   // стовпці
+    for (int j = 0; j < 5; j++)    // стовпці
     {
-        // знаходження максимального числа
+        // пошук максимального
         if (yakiisMasiv[i, j] > max)
-            max = yakiisMasiv[i, j];
-
-        // знаходження мінімального числа
-        if (yakiisMasiv[i, j] < min)
-            min = yakiisMasiv[i, j];
-    }
-}
-
-int targetMax = max;
-int targetMin = min;
-
-// найбільше число виведення
-Console.WriteLine($"The largest number: {max}");
-
-// -- знаходження координат найбільного числа
-for (int i = 0; i < 5; i++)  // рядки
-{
-    for (int j = 0; j < 5; j++)  // стовпці 
-    {
-        if (yakiisMasiv[i, j] == targetMax)
         {
-            Console.WriteLine($"Coordinates: [{i}, {j}]"); 
+            max = yakiisMasiv[i, j];
+            maxRow = i;
+            maxCol = j;
+        }
+
+        // пошук мінімального
+        if (yakiisMasiv[i, j] < min)
+        {
+            min = yakiisMasiv[i, j];
+            minRow = i;
+            minCol = j;
         }
     }
 }
+// найбільше число виведення
+Console.WriteLine($"The largest number: {max}");
+Console.WriteLine($"Coordinates: [{maxRow}, {maxCol}].");
 
 // найменше число виведення
 Console.WriteLine($"The lowest number: {min}");
+Console.WriteLine($"Coordinates: [{minRow}, {minCol}].");
 
-// -- знаходження координат найменшого числа
-for (int i = 0; i < 5; i++)  // рядки
-{
-    for (int j = 0; j < 5; j++)  // стовпці 
-    {
-        if (yakiisMasiv[i, j] == targetMin)
-        {
-            Console.WriteLine($"Coordinates: [{i}, {j}]");
-        }
-    }
-}
