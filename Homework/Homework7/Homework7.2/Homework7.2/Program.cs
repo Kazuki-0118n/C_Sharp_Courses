@@ -19,7 +19,7 @@ char[,] game =
 char pleyerOne_Choose;
 char pleyerTwo_Choose;
 
-
+Console.WriteLine("Гра: Хрестики-нолики!");
 // -- Створення ігрового поля
 for (int i = 0; i < 3; i++)
 { 
@@ -35,7 +35,7 @@ for (int i = 0; i < 3; i++)
 // -- Перше коло ходів
 // перший хід x
 Console.WriteLine("Хід першого гравця.Введіть номер клітинки для ходу: ");
-char inputOne;
+char inputOne = ' ';
 while (!char.TryParse(Console.ReadLine(), out inputOne))
 {
     Console.WriteLine("Введіть одне число: ");
@@ -50,7 +50,7 @@ for (int i = 0; i < 3; i++)
     {
         if (game[i, j] == playerOne_Choose)
         {
-            game[i, j] = pleyerX;
+            game[i, j] = pleyerX;   // замість числа який обрав користувач ставиться х
         }
     }
 }
@@ -98,7 +98,7 @@ for (int i = 0; i < 3; i++)
     {
         if (game[i, j] == playerTwo_Choose)
         {
-            game[i, j] = pleyerO;
+            game[i, j] = pleyerO;   //  замість числа який обрав користувач ставиться о
         }
     }
 }
@@ -164,7 +164,6 @@ for (int i = 0; i < 3; i++)
 }
 
 bool hasMoved = false;
-
 // другий хід o
 while (!hasMoved)
 {
@@ -245,7 +244,6 @@ for (int i = 0; i < 3; i++)
         }
     }
 }
-
 // оновлення поля
 for (int i = 0; i < 3; i++)
 {
@@ -257,7 +255,6 @@ for (int i = 0; i < 3; i++)
     Console.WriteLine();
     Console.WriteLine("----------.");
 }
-
 // -- Перевірка чи вийграв гравець 1
 // рядки
 for (int i = 0; i < 3; i++)
@@ -269,7 +266,6 @@ for (int i = 0; i < 3; i++)
         xWon = true;
     }
 }
-
 // стовпці
 for (int j = 0; j < 3; j++)
 {
@@ -280,7 +276,6 @@ for (int j = 0; j < 3; j++)
         xWon = true;
     }
 }
-
 // діагоналі
 if (game[0, 0] == 'x' &&
     game[1, 1] == 'x' &&
@@ -302,7 +297,6 @@ if (xWon)
 }
 
 moveValid = false;
-
 // третій хід o
 while (!moveValid)
 {
@@ -360,7 +354,6 @@ for (int i = 0; i < 3; i++)
         oWon = true;
     }
 }
-
 // стовпці
 for (int j = 0; j < 3; j++)
 {
@@ -371,7 +364,6 @@ for (int j = 0; j < 3; j++)
         oWon = true;
     }
 }
-
 // діагоналі
 if (game[0, 0] == 'o' &&
     game[1, 1] == 'o' &&
@@ -451,7 +443,6 @@ for (int i = 0; i < 3; i++)
         xWon = true;
     }
 }
-
 // стовпці
 for (int j = 0; j < 3; j++)
 {
@@ -462,7 +453,6 @@ for (int j = 0; j < 3; j++)
         xWon = true;
     }
 }
-
 // діагоналі
 if (game[0, 0] == 'x' &&
     game[1, 1] == 'x' &&
@@ -542,7 +532,6 @@ for (int i = 0; i < 3; i++)
         oWon = true;
     }
 }
-
 // стовпці
 for (int j = 0; j < 3; j++)
 {
@@ -553,7 +542,6 @@ for (int j = 0; j < 3; j++)
         oWon = true;
     }
 }
-
 // діагоналі
 if (game[0, 0] == 'o' &&
     game[1, 1] == 'o' &&
@@ -633,7 +621,6 @@ for (int i = 0; i < 3; i++)
         xWon = true;
     }
 }
-
 // стовпці
 for (int j = 0; j < 3; j++)
 {
@@ -644,7 +631,6 @@ for (int j = 0; j < 3; j++)
         xWon = true;
     }
 }
-
 // діагоналі
 if (game[0, 0] == 'x' &&
     game[1, 1] == 'x' &&
