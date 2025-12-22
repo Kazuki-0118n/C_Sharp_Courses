@@ -26,3 +26,36 @@ foreach(int ch in firstArray)
 Console.WriteLine();
 Console.WriteLine("Другий найбільший елемент:");
 Console.WriteLine(firstArray[firstArray.Length - 2]);
+Console.WriteLine();
+
+// -- Сортування за зростанням
+int[,] secondArray =
+{
+    { 1, 12, 2, 23 },
+    { 4, 43, 3, 87 },
+    { 5, 9, 82, 3 }
+};
+
+for (int numArray = 0; numArray < secondArray.GetLength(1) - 1; numArray++)
+    for (int i = 0; i < secondArray.GetLength(0); i++)     
+    {
+        for (int j = 0; j < secondArray.GetLength(1) - 1; j++)
+        {
+            if (secondArray[i, j] > secondArray[i, j + 1])
+            {
+                int numb = secondArray[i, j];
+                secondArray[i, j] = secondArray[i, j + 1];
+                secondArray[i, j + 1] = numb;
+            }
+        }
+    }
+
+// виведення масиву у вигляді таблиці
+for (int row = 0; row < secondArray.GetLength(0); row++)
+{
+    for (int col = 0; col < secondArray.GetLength(1); col++)
+    {
+        Console.Write(secondArray[row, col] + "\t");
+    }
+    Console.WriteLine();
+}
