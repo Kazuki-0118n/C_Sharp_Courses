@@ -59,3 +59,6 @@ for (int row = 0; row < secondArray.GetLength(0); row++)
     }
     Console.WriteLine();
 }
+
+
+
