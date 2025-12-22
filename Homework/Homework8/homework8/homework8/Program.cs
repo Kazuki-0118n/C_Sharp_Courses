@@ -28,6 +28,7 @@ Console.WriteLine("Другий найбільший елемент:");
 Console.WriteLine(firstArray[firstArray.Length - 2]);
 Console.WriteLine();
 
+//
 // -- Сортування за зростанням
 int[,] secondArray =
 {
@@ -59,6 +60,56 @@ for (int row = 0; row < secondArray.GetLength(0); row++)
     }
     Console.WriteLine();
 }
+Console.WriteLine();
 
 
+//
+// -- Видалення елементу за індексом
+int[] thirdArray = new int[] { 2, 55, 6, 234, 7, 2, 8, 9};
 
+foreach(int i in thirdArray)
+    Console.Write(i + "  ");
+
+int userNum =  -1;
+bool isValid = false;
+
+// зчитування та перевірка вводу
+while (!isValid)
+{
+    Console.WriteLine("Оберіть індекс числа для видалення(0-7):"); 
+
+    if (!int.TryParse(Console.ReadLine(), out userNum))
+    {
+        Console.WriteLine("Не є числом.");
+    }
+    else if (userNum < 0 || userNum >= 8)
+    {
+        Console.WriteLine("Індекс повинен бути від 0 до 7.");
+    }
+    else
+    {
+        isValid = true;
+    }
+}
+
+
+// створення нового масиву з видаленим числом
+int[] newArray = new int[thirdArray.Length - 1];
+
+int newIndex = 0;
+
+for (int i = 0; i < thirdArray.Length; i++)
+{
+    if (i != userNum)
+    {
+        newArray[newIndex] = thirdArray[i];
+        newIndex++;
+    }
+}
+
+// виведення нового масиву
+Console.WriteLine();
+foreach (int i in newArray)
+{
+    Console.Write(i + "  ");
+}
