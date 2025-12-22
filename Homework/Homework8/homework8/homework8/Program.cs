@@ -113,3 +113,48 @@ foreach (int i in newArray)
 {
     Console.Write(i + "  ");
 }
+Console.WriteLine();
+Console.WriteLine();
+
+
+//
+// -- Сума діагоналі масиву
+int[,] fourthArray =
+{
+    { 1, 2, 3 },
+    { 4, 5, 6 },
+    { 7, 8, 9 }
+};
+
+int sumOne = 0;
+int sumTwo = 0;
+int size = fourthArray.GetLength(0);
+
+// виведення масиву у вигляді таблиці
+for (int r = 0; r < fourthArray.GetLength(0); r++)
+{
+    for (int c = 0; c < fourthArray.GetLength(1); c++)
+    {
+        Console.Write(fourthArray[r, c] + "\t");
+
+        // сума головної діагоналі
+        if (r == c)
+        {
+            sumOne += fourthArray[r, c];
+        }
+
+        // сума побічної діагоналі
+        if (r + c == size - 1)
+        {
+            sumTwo += fourthArray[r, c];
+        }
+    }
+    Console.WriteLine();
+}
+
+int totalSum = sumOne + sumTwo;
+
+Console.WriteLine();
+Console.WriteLine($"Сума головної діагоналі: {sumOne}");
+Console.WriteLine($"Сума побічної діагоналі: {sumTwo}");
+Console.WriteLine($"Сума обох діагоналей: {totalSum}");
