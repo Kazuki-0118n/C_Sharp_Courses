@@ -1,4 +1,5 @@
-﻿Console.OutputEncoding = System.Text.Encoding.UTF8; 
+﻿using System; 
+Console.OutputEncoding = System.Text.Encoding.UTF8; 
 
 Console.WriteLine("Введіть кількість чисел Фібоначчі:");
 int n;
