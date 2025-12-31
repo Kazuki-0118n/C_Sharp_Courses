@@ -3,7 +3,7 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 // символи гравців
 char pleyerX = 'x';
-char pleyerO = 'o';
+char pleyerO = '0';
 
 bool xWon = false;
 bool oWon = false;

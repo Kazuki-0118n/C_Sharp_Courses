@@ -3,7 +3,11 @@
 //Написати програму, що буде видаляти з масиву елемент за вказаним індексом.
 //Написати програму, що буде знаходити суму елементів по діагоналі у двовимірному масиві.
 
+
 // -- Другий найбільший елемент
+using System;
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+
 int[] firstArray = new int[] { 2, 3, 1, 7, 8, 4 };
 
 for (int i = 0; i < firstArray.Length; i++)
