@@ -1,5 +1,5 @@
 ﻿int numberOfAttempts = 5;
-Console.WriteLine($"Welcome! Try to guess the hidden word!"); //Number of letters in the word: 5\nNumber of allowed incorrect attempts: {numberOfAttempts}");
+Console.WriteLine($"Welcome! Try to guess the hidden word!");
 Console.WriteLine("Select mode:\n1 — easy, 2 — medium, 3 — hard");
 char userSelectMode = ' ';
 bool isValid = false;
@@ -25,7 +25,7 @@ while(!isValid)
     }
 }
 
-string encryptedWord;
+string encryptedWord = "";
 
 if (userSelectMode == '1')
 {
@@ -40,8 +40,16 @@ else if (userSelectMode == '3')
     encryptedWord = "planet";
 }
 
+char[] guessedWord = new char[encryptedWord.Length];
+for (int i = 0; i < guessedWord.Length; i++)
+{
+    guessedWord[i] = ' ';
+}
 
-    while (numberOfAttempts > 0)
+Console.WriteLine($"Number of letters in the word: {encryptedWord.Length}" +
+    $"Number of allowed incorrect attempts: {numberOfAttempts}");
+
+while (numberOfAttempts > 0)
     {
         Console.Write("Enter a letter: ");
         char userLetter = ' ';
