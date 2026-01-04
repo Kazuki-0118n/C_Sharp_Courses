@@ -1,5 +1,29 @@
 ﻿int numberOfAttempts = 5;
-Console.WriteLine($"Welcome! Try to guess the hidden word!\nNumber of letters in the word: 5\nNumber of allowed incorrect attempts: {numberOfAttempts}");
+Console.WriteLine($"Welcome! Try to guess the hidden word!"); //Number of letters in the word: 5\nNumber of allowed incorrect attempts: {numberOfAttempts}");
+Console.WriteLine("Select mode:\n1 — easy, 2 — medium, 3 — hard");
+char userSelectMode = ' ';
+bool isValid = false;
+
+while(!isValid)
+{
+    bool parsed = char.TryParse(Console.ReadLine(), out userSelectMode);
+
+    // якщо це не один символ
+    if (!parsed)
+    {
+        Console.WriteLine("Enter only one character!");
+    }
+    // якщо символ, але не 1, 2, 3
+    else if (userSelectMode != '1' && userSelectMode != '2' && userSelectMode != '3')
+    {
+        Console.WriteLine("Enter a number from 1 to 3!");
+    }
+    
+    else
+    {
+        isValid = true;
+    }
+}
 
 string encryptedWord = "magic";
 char[] guessedWord = { ' ', ' ', ' ', ' ', ' ' };
