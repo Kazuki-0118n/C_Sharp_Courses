@@ -16,39 +16,56 @@ char[,] game =
     { '7', '8', '9' }
 };
 
-char pleyerOne_Choose;
-char pleyerTwo_Choose;
+char pleyerOneMove;
+char pleyerTwoMove;
 
 Console.WriteLine("Гра: Хрестики-нолики!");
+
 // -- Створення ігрового поля
-for (int i = 0; i < 3; i++)
-{ 
-    for (int j = 0; j < 3; j++)
+void PrintBoard(char[,] game)
+{
+    for (int i = 0; i < game.GetLength(0); i++)
     {
-        char field = game[i, j];
-        Console.Write($"{field} | ");
+        for (int j = 0; j < game.GetLength(1); j++)
+        {
+            char field = game[i, j];
+            Console.Write($"{field} | ");
+        }
+        Console.WriteLine();
+        Console.WriteLine("----------.");
     }
-    Console.WriteLine();
-    Console.WriteLine("----------.");
 }
+
 
 // -- Перше коло ходів
 // перший хід x
-Console.WriteLine("Хід першого гравця.Введіть номер клітинки для ходу: ");
-char inputOne = ' ';
-while (!char.TryParse(Console.ReadLine(), out inputOne))
+
+char GetPlayerMoveX(char[,] game)
 {
-    Console.WriteLine("Введіть одне число: ");
+    char pleyerOneMove = ' ';
+    do
+    {
+        Console.WriteLine("Хід першого гравця.Введіть номер клітинки для ходу: ");
+    }
+    while (!char.TryParse(Console.ReadLine(), out pleyerOneMove));
+    {
+        Console.WriteLine("Введіть одне число: ");
+    }
+    return pleyerOneMove;
 }
 
-char playerOne_Choose = inputOne;
+char pleyerOne_Choose = GetPlayerMoveX(game);
+
+
+////////////////////////////////////////
+
 
 // виведення x у поле
 for (int i = 0; i < 3; i++)
 {
     for (int j = 0; j < 3; j++)
     {
-        if (game[i, j] == playerOne_Choose)
+        if (game[i, j] == pleyerOne_Choose)
         {
             game[i, j] = pleyerX;   // замість числа який обрав користувач ставиться х
         }
