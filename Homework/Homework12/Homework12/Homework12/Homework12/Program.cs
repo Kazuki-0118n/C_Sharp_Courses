@@ -1,9 +1,4 @@
-﻿/*Додавання справи: Напишіть функцію, яка додає нову справу до списку. Користувач повинен мати можливість ввести назву справи.
-Виведення всіх справ: Реалізуйте функцію, яка виводить на екран усі справи зі списку.
-Відмітка про виконання: Додайте можливість позначити справу як виконану. Користувач повинен ввести номер справи, яку він хоче відмітити.
-Видалення справи: Напишіть функцію, яка дозволяє видалити справу зі списку. Користувач повинен ввести номер справи для видалення.
-*/
-using System;
+﻿using System;
 
 string[] tasks = new string[10];
 bool[] completed = new bool[10];
@@ -25,7 +20,8 @@ while (isRunning)
     Console.WriteLine();
     Console.WriteLine("1 - Mark task as completed");
     Console.WriteLine("2 - Delete task");
-    Console.WriteLine("3 - Exit");
+    Console.WriteLine("3 - Add task");
+    Console.WriteLine("4 - Exit");
     Console.Write("Choose option: ");
 
     string choice = Console.ReadLine();
@@ -42,7 +38,11 @@ while (isRunning)
             break;
 
         case "3":
-            isRunning = false;
+            AddTasks(ref tasks, ref completed, ref count);
+            break;
+
+        case "4":
+            isRunning = false; ;
             break;
 
         default:
@@ -70,6 +70,7 @@ void AddTasks(ref string[]tasks,
         if (input == "anded")
         {
             isAdded = false;
+            inputFinished = true;
             break;
         }
 
@@ -104,28 +105,33 @@ void PrintTasks(string[] tasks,
     Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine("TO-DO LIST:");
     Console.ResetColor();
+
     for (int i = 0; i < tasks.Length; i++)
     {
+        // does not show empty tasks after user input
+        if (inputFinished && tasks[i] == null)
+            continue;
+
         if (tasks[i] == null)
         {
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"Task {i + 1}:");
         }
+
         else if (!statusChosen)
         {
-            // when the user has not yet chosen a status
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine($"Task {i + 1}: {tasks[i]}");
         }
+        //completed
         else if (completed[i])
         {
-            // completed
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Task {i + 1}: {tasks[i]}");
         }
+        // uncompleted
         else
         {
-            // uncompleted
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Task {i + 1}: {tasks[i]}");
         }
