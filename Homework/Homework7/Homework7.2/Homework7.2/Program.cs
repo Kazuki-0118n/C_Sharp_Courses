@@ -48,55 +48,49 @@ char GetPlayerMoveX(char[,] game)
         Console.WriteLine("Хід першого гравця.Введіть номер клітинки для ходу: ");
     }
     while (!char.TryParse(Console.ReadLine(), out pleyerOneMove));
-    {
-        Console.WriteLine("Введіть одне число: ");
-    }
+    
     return pleyerOneMove;
 }
 
 char pleyerOne_Choose = GetPlayerMoveX(game);
 
 
-////////////////////////////////////////
-
-
 // виведення x у поле
-for (int i = 0; i < 3; i++)
+void ApplyMove(char[,] game, char move, char symbol)
 {
-    for (int j = 0; j < 3; j++)
+    for (int i = 0; i < game.GetLength(0); i++)
     {
-        if (game[i, j] == pleyerOne_Choose)
+        for (int j = 0; j < game.GetLength(1); j++)
         {
-            game[i, j] = pleyerX;   // замість числа який обрав користувач ставиться х
+            if (game[i, j] == move)
+            {
+                game[i, j] = symbol;
+                return;
+            }
         }
     }
 }
 
-// оновлення поля
-for (int i = 0; i < 3; i++)
-{
-    for (int j = 0; j < 3; j++)
-    {
-        char field = game[i, j];
-        Console.Write($"{field} | ");
-    }
-    Console.WriteLine();
-    Console.WriteLine("----------.");
-}
+PrintBoard(game);
 
-char inputTwo = ' ';
+char pleyerOneMove = GetPlayerMoveX(game);
+ApplyMove(game, pleyerOneMove, pleyerX);
+
+PrintBoard(game);
+
+//////////////
 
 bool moveMade = false;
 // перший хід o
 while (!moveMade)
 {
     Console.WriteLine("Хід другого гравця.Введіть номер клітинки для ходу: ");
-    while (!char.TryParse(Console.ReadLine(), out inputTwo))
+    while (!char.TryParse(Console.ReadLine(), out pleyerTwoMove))
     {
         Console.WriteLine("Введіть одне число: ");         // повторний ввод якщо користувач ввів не номер клітинки
     }
     // якщо номер введеної клитинки вже зайнятий
-    if (inputTwo == inputOne)
+    if (pleyerTwoMove == pleyerOneMove)
     {
         Console.WriteLine("Ви не можете зробити хід поверх іншого гравця.");
         Console.WriteLine("Виберіть номер клітинки для ходу: ");
