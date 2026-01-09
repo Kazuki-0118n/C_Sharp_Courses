@@ -1,4 +1,5 @@
 ﻿using System;
+Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 string[] tasks = new string[10];
 bool[] completed = new bool[10];
