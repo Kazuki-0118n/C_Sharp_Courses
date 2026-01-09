@@ -9,20 +9,59 @@ string[] tasks = new string[10];
 bool[] completed = new bool[10];
 int count = 0;
 
+bool statusChosen = false;
+bool inputFinished = false;
 
-//-///-///-///-///-
+
+PrintTasks(tasks, completed, statusChosen, inputFinished, count);
+AddTasks(ref tasks, ref completed, ref count);
+
+
 bool isRunning = true;
 while (isRunning)
 {
+    PrintTasks(tasks, completed, statusChosen, inputFinished, count);
+
+    Console.WriteLine();
+    Console.WriteLine("1 - Mark task as completed");
+    Console.WriteLine("2 - Delete task");
+    Console.WriteLine("3 - Exit");
+    Console.Write("Choose option: ");
+
+    string choice = Console.ReadLine();
+
+    switch (choice)
+    {
+        case "1":
+            MarkTask(completed, count);
+            statusChosen = true;
+            break;
+
+        case "2":
+            DeleteTask(ref tasks, ref completed, ref count);
+            break;
+
+        case "3":
+            isRunning = false;
+            break;
+
+        default:
+            Console.WriteLine("Invalid choice.");
+            Console.ReadKey();
+            break;
+    }
+
+    PrintTasks(tasks, completed, statusChosen, inputFinished, count);
 
 }
 
-///////////////////////////////////////
-
-void AddTasks(ref string[]tasks, ref bool[]completed, ref int count)
+// methods
+void AddTasks(ref string[]tasks,
+    ref bool[]completed,
+    ref int count)
 {
     const string ANDED = "anded";
-    bool isAdded = false;
+    bool isAdded = true;
     while (isAdded)
     {
         Console.WriteLine(@"Enter a task. If there are no more tasks, enter ""anded"":");
@@ -56,36 +95,48 @@ void AddTasks(ref string[]tasks, ref bool[]completed, ref int count)
 }
 
 
-void PrintTasks(string[] tasks, bool[] completed, int count)
-{
+void PrintTasks(string[] tasks,
+    bool[] completed,
+    bool statusChosen,
+    bool inputFinished,
+    int count)
+{ 
     Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine("TO-DO LIST:");
     Console.ResetColor();
-
-    if (count == 0)
+    for (int i = 0; i < tasks.Length; i++)
     {
-        Console.WriteLine("No tasks.");
-        return;
-    }
-
-    for (int i = 0; i < count; i++)
-    {
-        if (completed[i])
+        if (tasks[i] == null)
         {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine($"Task {i + 1}:");
+        }
+        else if (!statusChosen)
+        {
+            // when the user has not yet chosen a status
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine($"Task {i + 1}: {tasks[i]}");
+        }
+        else if (completed[i])
+        {
+            // completed
             Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Task {i + 1}: {tasks[i]}");
         }
         else
         {
+            // uncompleted
             Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Task {i + 1}: {tasks[i]}");
         }
 
-        Console.WriteLine($"Task {i + 1}: {tasks[i]}");
         Console.ResetColor();
     }
 }
 
 
-void MarkTask(bool[] completed, int count)
+void MarkTask(bool[] completed,
+    int count)
 {
     Console.Write("Enter task number: ");
     int number;
@@ -102,7 +153,9 @@ void MarkTask(bool[] completed, int count)
 }
 
 
-void DeleteTask(ref string[] tasks, ref bool[] completed, ref int count)
+void DeleteTask(ref string[] tasks,
+    ref bool[] completed,
+    ref int count)
 {
     Console.Write("Enter task number: ");
     int number;
