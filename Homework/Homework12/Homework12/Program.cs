@@ -15,3 +15,67 @@ foreach (string task in defoultList)
 {
     Console.WriteLine(task);
 }
+
+bool isAdded = true;
+const string ANDED = "anded";   // when user enter all task 
+int count = 0;
+int numberTask = 1;
+
+while (isAdded)
+{
+    Console.WriteLine(@"Enter a task. If there are no more tasks, enter ""anded"":");
+    var input = Console.ReadLine();
+
+    if (input == "anded")
+    {
+        isAdded = false;
+        break;
+    }
+
+    if (count == defoultList.Length)
+    {
+        string[] newArray = new string [defoultList.Length + 10];
+
+        for (int i = 0; i < defoultList.Length; i++)
+        {
+            newArray[i] = defoultList[i];
+        }
+        defoultList = newArray;
+    }
+
+    defoultList[count] = $"Task {numberTask}: " + input;
+    count++;
+    numberTask++;
+}
+
+for (int i = 0; i < count; i++)
+{
+    Console.WriteLine(defoultList[i]);
+}
+
+Console.WriteLine();
+Console.WriteLine("If you want to highlight completed tasks, enter 1. If you want to highlight unfinished tasks, enter 2.");
+Console.WriteLine("If you want to skip, enter 3:");
+var userChoise = Console.ReadLine();
+
+switch(userChoise)
+{
+    case "1":
+
+
+        break;
+
+    case "2":
+
+
+        break;
+
+    case "3":
+
+
+        break;
+
+    default:
+        Console.WriteLine("Invalid choice. Please enter 1, 2, or 3.");
+        break;
+}
