@@ -5,7 +5,6 @@
 */
 using System;
 
-
 string[] tasks = new string[10];
 bool[] completed = new bool[10];
 int count = 0;
@@ -85,4 +84,18 @@ void PrintTasks(string[] tasks, bool[] completed, int count)
     }
 }
 
+void MarkTask(bool[] completed, int count)
+{
+    Console.Write("Enter task number: ");
+    int number;
+    var parsed = int.TryParse(Console.ReadLine(),out number);
 
+    if (number < 1 || number > count)
+    {
+        Console.WriteLine("Invalid task number.");
+        Console.ReadKey();
+        return;
+    }
+
+    completed[number - 1] = true;
+}
