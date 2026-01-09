@@ -25,7 +25,7 @@ while (isRunning)
 
 void AddTasks(ref string[]tasks, ref bool[]completed, ref int count)
 {
-
+    const string ANDED = "anded";
     bool isAdded = false;
     while (isAdded)
     {
@@ -34,7 +34,8 @@ void AddTasks(ref string[]tasks, ref bool[]completed, ref int count)
 
         if (input == "anded")
         {
-            isAdded = false; break;
+            isAdded = false;
+            break;
         }
 
         if (count == tasks.Length)
