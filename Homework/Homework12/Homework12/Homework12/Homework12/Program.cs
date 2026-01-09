@@ -5,9 +5,6 @@
 */
 using System;
 
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("TO-DO LIST:");
-Console.ResetColor();
 
 string[] tasks = new string[10];
 bool[] completed = new bool[10];
@@ -58,3 +55,34 @@ void AddTasks(ref string[]tasks, ref bool[]completed, ref int count)
         count++;
     }
 }
+
+
+void PrintTasks(string[] tasks, bool[] completed, int count)
+{
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("TO-DO LIST:");
+    Console.ResetColor();
+
+    if (count == 0)
+    {
+        Console.WriteLine("No tasks.");
+        return;
+    }
+
+    for (int i = 0; i < count; i++)
+    {
+        if (completed[i])
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+
+        Console.WriteLine($"Task {i + 1}: {tasks[i]}");
+        Console.ResetColor();
+    }
+}
+
+
