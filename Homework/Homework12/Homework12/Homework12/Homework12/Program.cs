@@ -84,6 +84,7 @@ void PrintTasks(string[] tasks, bool[] completed, int count)
     }
 }
 
+
 void MarkTask(bool[] completed, int count)
 {
     Console.Write("Enter task number: ");
@@ -98,4 +99,29 @@ void MarkTask(bool[] completed, int count)
     }
 
     completed[number - 1] = true;
+}
+
+
+void DeleteTask(ref string[] tasks, ref bool[] completed, ref int count)
+{
+    Console.Write("Enter task number: ");
+    int number;
+    var parsed = int.TryParse(Console.ReadLine(), out number);
+
+    if (number < 1 || number > count)
+    {
+        Console.WriteLine("Invalid task number.");
+        Console.ReadKey();
+        return;
+    }
+
+    for (int i = number - 1; i < count - 1; i++)
+    {
+        tasks[i] = tasks[i + 1];
+        completed[i] = completed[i + 1];
+    }
+
+    tasks[count - 1] = null;
+    completed[count - 1] = false;
+    count--;
 }
