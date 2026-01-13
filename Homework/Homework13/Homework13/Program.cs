@@ -6,6 +6,8 @@ bool isRunning = true;
 
 while (isRunning)
 {
+    Console.Clear();
+
     Console.WriteLine("--- ACCOUNT MENU ---");
     Console.WriteLine($"Account name: {myAccount.GetName()}");
     Console.WriteLine("1 - View Balance");
@@ -19,6 +21,13 @@ while (isRunning)
 
     switch (input)
     {
+        case "1":
+            Console.WriteLine($"Current balance: {myAccount.GetBalance()}");
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
+            break;
+
         case "2":
             Console.WriteLine("Enter amount:");
             if (decimal.TryParse(Console.ReadLine(), out decimal userInputWithdr))
@@ -29,6 +38,9 @@ while (isRunning)
             {
                 Console.WriteLine("Invalid input!");
             }
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
             break;
 
         case "3":
@@ -41,12 +53,29 @@ while (isRunning)
             {
                 Console.WriteLine("Invalid input!");
             }
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
             break;
 
         case "4":
             Console.Write("\nEnter a new name: ");
             var newUserName = Console.ReadLine();
             myAccount.ChangeName(newUserName);
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
+            break;
+
+        case "5":
+            isRunning = false;
+            break;
+
+        default:
+            Console.WriteLine("Invalid input!");
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
             break;
     }
 }

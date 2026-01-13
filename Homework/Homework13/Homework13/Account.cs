@@ -30,6 +30,11 @@ namespace Homework13
         }
 
 
+        public decimal GetBalance()
+            {
+            return balance; 
+        }
+
         public bool Withdrawal(decimal amount)
         {
             if (amount <= balance)
