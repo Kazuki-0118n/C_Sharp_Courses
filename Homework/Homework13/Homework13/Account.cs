@@ -8,8 +8,26 @@ namespace Homework13
 {
     internal class Account
     {
-        private string name;
+        private string name = "User";
         private decimal balance = 1000;
+
+        public void ChangeName(string newName)
+        {
+            if (!string.IsNullOrWhiteSpace(newName))
+            {
+                name = newName;
+                Console.WriteLine($"Name successfully changed to: {name}");
+            }
+            else
+            {
+                Console.WriteLine("Error! Name cannot be empty!");
+            }
+        }
+
+        public string GetName()
+        {
+            return name;
+        }
 
 
         public bool Withdrawal(decimal amount)
@@ -30,9 +48,9 @@ namespace Homework13
 
         public bool Deposit(decimal amount)
         {
-                balance += amount;
-                Console.WriteLine($"Success! Remaining balance: {balance}");
-                return true;
+            balance += amount;
+            Console.WriteLine($"Success! Remaining balance: {balance}");
+            return true;
         }
     }
 }

@@ -7,6 +7,7 @@ bool isRunning = true;
 while (isRunning)
 {
     Console.WriteLine("--- ACCOUNT MENU ---");
+    Console.WriteLine($"Account name: {myAccount.GetName()}");
     Console.WriteLine("1 - View Balance");
     Console.WriteLine("2 - Withdraw");
     Console.WriteLine("3 - Deposit");
@@ -41,6 +42,11 @@ while (isRunning)
                 Console.WriteLine("Invalid input!");
             }
             break;
+
+        case "4":
+            Console.Write("\nEnter a new name: ");
+            var newUserName = Console.ReadLine();
+            myAccount.ChangeName(newUserName);
             break;
     }
 }
