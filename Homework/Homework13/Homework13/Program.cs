@@ -9,7 +9,7 @@ while (isRunning)
     Console.Clear();
 
     Console.WriteLine("--- ACCOUNT MENU ---");
-    Console.WriteLine($"Account name: {myAccount.GetName()}");
+    Console.WriteLine($"Account name: {myAccount.Name}");
     Console.WriteLine("1 - View Balance");
     Console.WriteLine("2 - Withdraw");
     Console.WriteLine("3 - Deposit");
@@ -22,7 +22,7 @@ while (isRunning)
     switch (input)
     {
         case "1":
-            Console.WriteLine($"Current balance: {myAccount.GetBalance()}");
+            Console.WriteLine($"Current balance: {myAccount.Balance}");
 
             Console.WriteLine("\nPress any key to return to menu...");
             Console.ReadKey();
@@ -61,7 +61,7 @@ while (isRunning)
         case "4":
             Console.Write("\nEnter a new name: ");
             var newUserName = Console.ReadLine();
-            myAccount.ChangeName(newUserName);
+            myAccount.Name = newUserName;
 
             Console.WriteLine("\nPress any key to return to menu...");
             Console.ReadKey();

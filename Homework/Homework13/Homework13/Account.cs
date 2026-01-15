@@ -11,28 +11,26 @@ namespace Homework13
         private string name = "User";
         private decimal balance = 1000;
 
-        public void ChangeName(string newName)
+        public string Name
         {
-            if (!string.IsNullOrWhiteSpace(newName))
-            {
-                name = newName;
-                Console.WriteLine($"Name successfully changed to: {name}");
-            }
-            else
-            {
-                Console.WriteLine("Error! Name cannot be empty!");
+            get { return name; }
+            set {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    name = value;
+                    Console.WriteLine($"Name successfully changed to: {name}");
+                }
+                else
+                {
+                    Console.WriteLine("Error! Name cannot be empty!");
+                }
             }
         }
 
-        public string GetName()
+
+        public decimal Balance
         {
-            return name;
-        }
-
-
-        public decimal GetBalance()
-            {
-            return balance; 
+            get { return balance; }
         }
 
         public bool Withdrawal(decimal amount)
