@@ -1,0 +1,17 @@
+# Ignore cache and build results
+bin/
+obj/
+
+# Large data and log files
+*.log
+*.csv
+*.json
+!appsettings.json
+
+# Documentation
+docs/
+*.md
+
+# Secrets
+*.env
+*.pem
