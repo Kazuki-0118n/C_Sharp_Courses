@@ -14,3 +14,16 @@ Release/
 # Temporary
 *.tmp
 *.log
+# Настройки Cursor и VS Code
+.vscode/
+.cursor/
+
+# Пакеты и инструменты .NET
+*.swp
+*.bak
+usersecrets.json
+.ionide/
+
+# Файлы операционной системы
+.DS_Store
+Thumbs.db
